@@ -48,7 +48,7 @@ export default function Header() {
           {/* Logo Text */}
           <a 
             href="/"
-            className="font-bold text-xl tracking-wide bg-gradient-to-r from-primary-600 to-primary-500 bg-clip-text text-transparent hover:opacity-80 transition-opacity cursor-pointer"
+            className="font-bold text-xl tracking-wide bg-gradient-to-r from-primary-600 to-primary-500 bg-clip-text text-transparent hover:opacity-70 transition-all duration-200 cursor-pointer"
             aria-label="TechLearn Home"
           >
             TechLearn
@@ -57,14 +57,14 @@ export default function Header() {
           {/* Center - Level and Streak */}
           <div className="hidden sm:flex items-center gap-3">
             {/* Level Badge */}
-            <div className="flex items-center gap-2 px-4 py-2 bg-primary-50 rounded-xl">
+            <div className="flex items-center gap-2 px-4 py-2 bg-primary-50 rounded-xl hover:bg-primary-100 transition-colors duration-200">
               <Trophy className="w-5 h-5 text-primary-600" />
               <span className="text-sm font-semibold text-primary-700">Level {CURRENT_LEVEL}</span>
             </div>
             
             {/* Streak Indicator */}
             <motion.div 
-              className="flex items-center gap-2 px-4 py-2 bg-orange-50 rounded-xl cursor-pointer group"
+              className="flex items-center gap-2 px-4 py-2 bg-orange-50 rounded-xl cursor-pointer hover:bg-orange-100"
               whileHover={{ y: -2 }}
               transition={{ duration: 0.2 }}
               title="Current daily streak"
@@ -79,7 +79,7 @@ export default function Header() {
           <div className="relative" ref={dropdownRef}>
             <button
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-              className="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-primary-500 to-primary-600 text-white font-semibold text-sm shadow-md hover:shadow-lg transition-shadow cursor-pointer"
+              className="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-primary-500 to-primary-600 text-white font-semibold text-sm shadow-md hover:shadow-xl hover:scale-105 transition-all duration-200 cursor-pointer"
               aria-label={`${USER_NAME} profile menu`}
               aria-expanded={isDropdownOpen}
               aria-haspopup="true"
@@ -102,7 +102,7 @@ export default function Header() {
                     <a
                       key={index}
                       href={item.href}
-                      className="flex items-center gap-3 px-4 py-3 text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-700 transition-colors"
+                      className="flex items-center gap-3 px-4 py-3 text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-700 transition-all duration-150"
                       onClick={() => setIsDropdownOpen(false)}
                     >
                       <item.icon className="w-4 h-4" />
