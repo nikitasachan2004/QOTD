@@ -1,7 +1,7 @@
 export const userStats = {
   currentStreak: 7,
   longestStreak: 12,
-  totalAttempts: 156,
+  totalAttempts: 56,
   successfulSolves: 142,
   successRate: 91,
   averageSolveTime: "18 min",
