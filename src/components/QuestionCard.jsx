@@ -56,10 +56,10 @@ export default function QuestionCard() {
           <Zap className="w-3 h-3" />
           +{metadata.xp} XP
         </span>
-        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-gray-50 text-gray-600 opacity-75" title="Solve to unlock solution">
+        <button className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-700 hover:bg-gray-200 hover:text-gray-900 transition-all duration-200 cursor-pointer" title="Solve to unlock solution">
           <Lock className="w-3 h-3" />
           Solution Locked
-        </span>
+        </button>
       </div>
 
       {/* Description */}
