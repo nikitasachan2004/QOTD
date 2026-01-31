@@ -25,7 +25,7 @@ export default function Leaderboard() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="bg-white rounded-xl p-6 shadow-soft border border-border"
+      className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md border border-border transition-shadow duration-200"
     >
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
@@ -33,21 +33,23 @@ export default function Leaderboard() {
         <div className="flex gap-2 bg-soft-bg p-1 rounded-xl">
           <button
             onClick={() => setActiveTab('today')}
-            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ${
+            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 cursor-pointer focus-visible:ring-2 focus-visible:ring-blue-500 ${
               activeTab === 'today'
-                ? 'bg-white text-primary shadow-soft'
+                ? 'bg-white text-primary shadow-sm'
                 : 'text-muted hover:text-dark'
             }`}
+            aria-label="View today's leaderboard"
           >
             Today
           </button>
           <button
             onClick={() => setActiveTab('thisWeek')}
-            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 ${
+            className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 cursor-pointer focus-visible:ring-2 focus-visible:ring-blue-500 ${
               activeTab === 'thisWeek'
-                ? 'bg-white text-primary shadow-soft'
+                ? 'bg-white text-primary shadow-sm'
                 : 'text-muted hover:text-dark'
             }`}
+            aria-label="View this week's leaderboard"
           >
             This Week
           </button>
@@ -63,7 +65,7 @@ export default function Leaderboard() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.3, delay: index * 0.05 }}
             whileHover={{ scale: 1.02, x: 4 }}
-            className={`flex items-center gap-4 p-4 rounded-xl transition-all duration-300 ${
+            className={`flex items-center gap-4 p-4 rounded-xl transition-all duration-200 cursor-pointer ${
               user.isCurrentUser
                 ? 'bg-primary/10 border-2 border-primary'
                 : 'bg-soft-bg hover:bg-border'

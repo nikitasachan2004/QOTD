@@ -30,7 +30,7 @@ export default function QuestionCard() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       whileHover={{ y: -2 }}
-      className="bg-white rounded-xl p-6 sm:p-8 shadow-soft-lg border border-border transition-all duration-300"
+      className="bg-white rounded-xl p-6 sm:p-8 shadow-sm hover:shadow-md border border-border transition-shadow duration-200"
     >
       {/* Title */}
       <div className="mb-3">
@@ -56,7 +56,7 @@ export default function QuestionCard() {
           <Zap className="w-3 h-3" />
           +{metadata.xp} XP
         </span>
-        <button className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-700 hover:bg-gray-200 hover:text-gray-900 transition-all duration-200 cursor-pointer" title="Solve to unlock solution">
+        <button className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-700 hover:bg-gray-200 hover:text-gray-900 transition-all duration-200 cursor-pointer focus-visible:ring-2 focus-visible:ring-blue-500" title="Solve to unlock solution" aria-label="Solution locked - solve to unlock">
           <Lock className="w-3 h-3" />
           Solution Locked
         </button>

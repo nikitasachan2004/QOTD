@@ -22,7 +22,7 @@ export default function SubscribeCTA() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="bg-gradient-to-br from-primary to-primary-hover text-white rounded-xl p-8 shadow-soft-lg sticky bottom-4 sm:static"
+      className="bg-gradient-to-br from-primary to-primary-hover text-white rounded-2xl p-8 shadow-sm hover:shadow-md sticky bottom-4 sm:static transition-shadow duration-200"
     >
       <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
         {/* Icon and Text */}
@@ -49,7 +49,8 @@ export default function SubscribeCTA() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
-                  className="w-full pl-12 pr-4 py-3 rounded-xl bg-white text-dark placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-white/50"
+                  className="w-full pl-12 pr-4 py-3 rounded-xl bg-white text-dark placeholder:text-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                  aria-label="Email address for notifications"
                   required
                 />
               </div>
@@ -57,7 +58,8 @@ export default function SubscribeCTA() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 type="submit"
-                className="px-6 py-3 bg-white text-primary font-semibold rounded-xl hover:bg-white/90 transition-colors duration-300 whitespace-nowrap"
+                className="px-6 py-3 bg-white text-primary font-semibold rounded-xl hover:bg-white/90 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 whitespace-nowrap cursor-pointer focus-visible:ring-2 focus-visible:ring-blue-500"
+                aria-label="Subscribe to notifications"
               >
                 Notify Me
               </motion.button>

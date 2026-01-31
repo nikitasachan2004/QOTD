@@ -10,14 +10,14 @@ export default function OutputPanel({ output }) {
       initial={{ opacity: 0, y: 20, height: 0 }}
       animate={{ opacity: 1, y: 0, height: 'auto' }}
       transition={{ duration: 0.4 }}
-      className={`bg-white rounded-xl shadow-soft-lg border-2 overflow-hidden ${
-        isSuccess ? 'border-success' : 'border-error'
+      className={`bg-white rounded-xl shadow-sm hover:shadow-md border-2 overflow-hidden transition-shadow duration-200 ${
+        isSuccess ? 'border-success bg-success/5' : 'border-error bg-error/5'
       }`}
     >
       {/* Header */}
       <div
         className={`p-4 flex items-center gap-3 ${
-          isSuccess ? 'bg-success/10' : 'bg-error/10'
+          isSuccess ? 'bg-green-50 border-b border-green-200' : 'bg-red-50 border-b border-red-200'
         }`}
       >
         {isSuccess ? (
@@ -25,7 +25,7 @@ export default function OutputPanel({ output }) {
         ) : (
           <XCircle className="w-6 h-6 text-error flex-shrink-0" />
         )}
-        <h3 className={`font-bold text-lg ${isSuccess ? 'text-success' : 'text-error'}`}>
+        <h3 className={`font-bold text-lg flex items-center gap-2 ${isSuccess ? 'text-success' : 'text-error'}`}>
           {output.message}
         </h3>
       </div>

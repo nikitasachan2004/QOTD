@@ -11,7 +11,7 @@ export default function HintBox() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="bg-white rounded-xl p-6 shadow-soft border border-border"
+      className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md border border-border transition-shadow duration-200"
     >
       <div className="flex items-center gap-3 mb-4">
         <div className="w-10 h-10 bg-yellow-100 rounded-xl flex items-center justify-center">
@@ -40,7 +40,8 @@ export default function HintBox() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setIsRevealed(true)}
-                className="px-6 py-3 bg-primary text-white rounded-xl font-semibold hover:bg-primary-hover transition-colors duration-300 flex items-center gap-2 mx-auto"
+                className="px-6 py-3 bg-primary text-white rounded-xl font-semibold hover:bg-primary-hover hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 flex items-center gap-2 mx-auto cursor-pointer focus-visible:ring-2 focus-visible:ring-blue-500"
+                aria-label="Reveal hint"
               >
                 <Unlock className="w-4 h-4" />
                 Reveal Hint

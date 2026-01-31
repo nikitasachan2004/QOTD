@@ -70,7 +70,7 @@ export default function Header() {
           {/* Right - Status + Profile Group */}
           <div className="flex items-center gap-3">
             {/* Level Badge */}
-            <div className="flex items-center gap-2 px-4 py-2 bg-primary-50 rounded-xl hover:bg-primary-100 transition-colors duration-200">
+            <div className="flex items-center gap-2 px-4 py-2 bg-primary-50 rounded-xl hover:bg-primary-100 transition-all duration-200 cursor-pointer">
               <Trophy className="w-5 h-5 text-primary-600" />
               <span className="text-sm font-semibold text-primary-700">Level {CURRENT_LEVEL}</span>
             </div>
@@ -89,7 +89,7 @@ export default function Header() {
             <div className="relative" ref={dropdownRef}>
               <button
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                className="flex items-center justify-center w-10 h-10 rounded-full bg-white shadow hover:shadow-lg hover:scale-105 transition-all duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-offset-2"
+                className="flex items-center justify-center w-10 h-10 rounded-full bg-white shadow hover:shadow-lg hover:scale-105 transition-all duration-200 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                 aria-label="Open profile menu"
                 aria-expanded={isDropdownOpen}
                 aria-haspopup="menu"
@@ -107,7 +107,7 @@ export default function Header() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: -10, scale: 0.95 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-neutral-200 overflow-hidden"
+                    className="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-neutral-200 overflow-hidden z-50"
                     role="menu"
                     aria-orientation="vertical"
                     aria-labelledby="profile-menu"
@@ -116,7 +116,7 @@ export default function Header() {
                       <a
                         key={index}
                         href={item.href}
-                        className="flex items-center gap-3 px-4 py-3 text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-700 transition-all duration-150 focus:outline-none focus:bg-primary-50 focus:text-primary-700"
+                        className="flex items-center gap-3 px-4 py-3 text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-700 transition-all duration-200 focus:outline-none focus-visible:bg-primary-100 focus-visible:text-primary-700 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-500 cursor-pointer"
                         onClick={() => setIsDropdownOpen(false)}
                         role="menuitem"
                         tabIndex={0}
