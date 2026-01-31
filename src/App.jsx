@@ -7,6 +7,7 @@ import OutputPanel from './components/OutputPanel';
 import Stats from './components/Stats';
 import Hint from './components/Hint';
 import Leaderboard from './components/Leaderboard';
+import Subscribe from './components/Subscribe';
 import { questionData } from './data/questionData';
 import { leaderboardData } from './data/leaderboardData';
 
@@ -57,11 +58,7 @@ function App() {
         <Stats />
         <Hint hint={questionData.hint} />
         <Leaderboard leaders={leaderboardData} />
-        
-        {/* Page content will go here */}
-        <div className="space-y-8">
-          <p className="text-center text-neutral-500">More components coming next...</p>
-        </div>
+        <Subscribe />
       </div>
     </div>
   )
