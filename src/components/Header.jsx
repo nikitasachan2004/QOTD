@@ -5,6 +5,8 @@ import { Trophy, Flame } from 'lucide-react';
 // Constants
 const CURRENT_LEVEL = 7;
 const CURRENT_STREAK = 5;
+const USER_NAME = 'Nikita Sachan';
+const USER_INITIALS = 'NS';
 
 export default function Header() {
   return (
@@ -45,6 +47,15 @@ export default function Header() {
               <span className="text-sm font-semibold text-orange-600">{CURRENT_STREAK}</span>
             </motion.div>
           </div>
+
+          {/* Right - Profile Avatar */}
+          <button
+            className="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-primary-500 to-primary-600 text-white font-semibold text-sm shadow-md hover:shadow-lg transition-shadow cursor-pointer"
+            aria-label={`${USER_NAME} profile menu`}
+            title={USER_NAME}
+          >
+            {USER_INITIALS}
+          </button>
         </div>
       </div>
     </motion.header>
