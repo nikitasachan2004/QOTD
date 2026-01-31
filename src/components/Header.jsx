@@ -87,8 +87,8 @@ export default function Header() {
 
             {/* Profile Avatar with Dropdown */}
             <div className="relative" ref={dropdownRef}>
-            <button
-              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              <button
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                 className="flex items-center justify-center w-10 h-10 rounded-full bg-white shadow hover:shadow-lg hover:scale-105 transition-all duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-offset-2"
                 aria-label="Open profile menu"
                 aria-expanded={isDropdownOpen}
@@ -97,39 +97,43 @@ export default function Header() {
                 title={USER_NAME}
               >
                 <User className="w-5 h-5 text-neutral-700" />
-              {isDropdownOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10, scale: 0.95 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                  transition={{ duration: 0.2 }}
-                  className="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-neutral-200 overflow-hidden"
-                  role="menu"
-                  aria-orientation="vertical"
-                  aria-labelledby="profile-menu"
-                >
-                  {menuItems.map((item, index) => (
-                    <a
-                      key={index}
-                      href={item.href}
-                      className="flex items-center gap-3 px-4 py-3 text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-700 transition-all duration-150 focus:outline-none focus:bg-primary-50 focus:text-primary-700"
-                      onClick={() => setIsDropdownOpen(false)}
-                      role="menuitem"
-                      tabIndex={0}
-                      onKeyDown={(e) => {
-                        if (e.key === 'Enter' || e.key === ' ') {
-                          e.preventDefault();
-                          setIsDropdownOpen(false);
-                        }
-                      }}
-                    >
-                      <item.icon className="w-4 h-4" aria-hidden="true" />
-                      <span className="font-medium">{item.label}</span>
-                    </a>
-                  ))}
-                </motion.div>
-              )}
-            </AnimatePresence>
+              </button>
+
+              {/* Dropdown Menu */}
+              <AnimatePresence>
+                {isDropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-neutral-200 overflow-hidden"
+                    role="menu"
+                    aria-orientation="vertical"
+                    aria-labelledby="profile-menu"
+                  >
+                    {menuItems.map((item, index) => (
+                      <a
+                        key={index}
+                        href={item.href}
+                        className="flex items-center gap-3 px-4 py-3 text-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-700 transition-all duration-150 focus:outline-none focus:bg-primary-50 focus:text-primary-700"
+                        onClick={() => setIsDropdownOpen(false)}
+                        role="menuitem"
+                        tabIndex={0}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            setIsDropdownOpen(false);
+                          }
+                        }}
+                      >
+                        <item.icon className="w-4 h-4" aria-hidden="true" />
+                        <span className="font-medium">{item.label}</span>
+                      </a>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           </div>
         </div>
