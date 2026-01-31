@@ -5,6 +5,7 @@ import QuestionCard from './components/QuestionCard';
 import CodeEditor from './components/CodeEditor';
 import OutputPanel from './components/OutputPanel';
 import Stats from './components/Stats';
+import Hint from './components/Hint';
 import { questionData } from './data/questionData';
 
 function App() {
@@ -52,6 +53,7 @@ function App() {
         />
         <OutputPanel output={output} />
         <Stats />
+        <Hint hint={questionData.hint} />
         
         {/* Page content will go here */}
         <div className="space-y-8">
