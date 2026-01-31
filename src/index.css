@@ -1,3 +1,68 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Import Google Fonts for better typography */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@layer base {
+  * {
+    @apply antialiased;
+  }
+
+  body {
+    @apply bg-primary-50 text-neutral-800 font-sans;
+    /* Smooth scrolling for better UX */
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar for webkit browsers */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-neutral-100;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary-300 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary-400;
+  }
+}
+
+@layer components {
+  /* Reusable button styles */
+  .btn-primary {
+    @apply bg-primary-600 text-white px-6 py-3 rounded-lg font-medium 
+           transition-all duration-200 hover:bg-primary-700 
+           active:scale-95 focus:outline-none focus:ring-2 
+           focus:ring-primary-500 focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-primary-600 border-2 border-primary-600 
+           px-6 py-3 rounded-lg font-medium transition-all duration-200 
+           hover:bg-primary-50 active:scale-95 focus:outline-none 
+           focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+
+  /* Card component style */
+  .card {
+    @apply bg-white rounded-card shadow-card transition-all duration-300 
+           hover:shadow-card-hover;
+  }
+}
+
+@layer utilities {
+  /* Custom focus visible for accessibility */
+  .focus-visible-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 
+           focus-visible:ring-primary-500 focus-visible:ring-offset-2;
+  }
+}
+
