@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Play, Send, ChevronDown, Loader2 } from 'lucide-react';
-import { todaysQuestion } from '../data/question';
 import OutputPanel from './OutputPanel';
 
 const LANGUAGES = [
@@ -15,18 +14,70 @@ const LANGUAGES = [
   "C"
 ];
 
+const MOCK_TEMPLATES = {
+  JavaScript: `
+function twoSum(arr, target) {
+  console.log("JS mode");
+  return [];
+}`,
+
+  TypeScript: 
+`function twoSum(arr: number[], target: number): number[] {
+  console.log("TS mode");
+  return [];
+}`,
+
+  Python: 
+`def two_sum(arr, target):
+    print("Python mode")
+    return []`,
+
+  Python3: 
+`def two_sum(arr, target):
+    print("Python3 mode")
+    return []`,
+
+  Java: 
+`class Solution {
+  public int[] twoSum(int[] arr, int target) {
+    System.out.println("Java mode");
+    return new int[]{};
+  }
+}`,
+
+  "C++": 
+`#include <iostream>
+using namespace std;
+
+vector<int> twoSum(...) {
+  cout << "C++ mode";
+}`,
+
+  C: 
+`#include <stdio.h>
+
+int* twoSum(...) {
+  printf("C mode");
+}`,
+
+  "C#": 
+`class Solution {
+  int[] TwoSum(...) {
+    Console.WriteLine("C# mode");
+  }
+}`
+};
+
 export default function CodeEditor() {
   const [language, setLanguage] = useState('JavaScript');
-  const [code, setCode] = useState(todaysQuestion.starterCode.javascript);
+  const [code, setCode] = useState(MOCK_TEMPLATES.JavaScript);
   const [isRunning, setIsRunning] = useState(false);
   const [output, setOutput] = useState(null);
   const [showResults, setShowResults] = useState(false);
 
-  const handleLanguageChange = (newLang) => {
-    setLanguage(newLang);
-    const langKey = newLang.toLowerCase().replace(/[^a-z0-9]/g, '');
-    setCode(todaysQuestion.starterCode[langKey] || todaysQuestion.starterCode.javascript);
-    setOutput(null);
+  const handleLanguageSelect = (lang) => {
+    setLanguage(lang);
+    setCode(MOCK_TEMPLATES[lang]);
   };
 
   const handleRunCode = () => {
@@ -97,7 +148,7 @@ export default function CodeEditor() {
           <div className="relative">
             <select
               value={language}
-              onChange={(e) => handleLanguageChange(e.target.value)}
+              onChange={(e) => handleLanguageSelect(e.target.value)}
               className="appearance-none bg-white border border-border rounded-xl px-4 py-2 pr-10 font-semibold text-sm text-dark cursor-pointer hover:border-primary transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary/30"
             >
               {LANGUAGES.map((lang) => (
@@ -109,7 +160,7 @@ export default function CodeEditor() {
         </div>
 
         {/* Code Area with Line Numbers */}
-        <div className={`flex bg-[#1e1e1e] text-[#d4d4d4] font-mono text-sm transition-all duration-300 ease-in-out ${showResults ? 'min-h-[260px]' : 'min-h-[320px] sm:min-h-[420px]'}`}>
+        <div className="flex bg-[#1e1e1e] text-[#d4d4d4] font-mono text-sm min-h-[320px] sm:min-h-[420px]">
           {/* Line Numbers */}
           <div className="bg-[#1e1e1e] py-4 px-3 border-r border-[#3e3e3e] select-none">
             {getLineNumbers().map((num) => (
