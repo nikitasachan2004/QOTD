@@ -11,7 +11,7 @@ const QuestionCard = ({ question }) => {
   };
 
   return (
-    <article className="card p-8 mb-8" aria-labelledby="question-title">
+    <article className="card p-6 sm:p-8 mb-6 sm:mb-8" aria-labelledby="question-title">
       {/* Question Header */}
       <div className="flex items-start justify-between mb-6">
         <div className="flex items-center gap-3">

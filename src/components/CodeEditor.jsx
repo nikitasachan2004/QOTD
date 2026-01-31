@@ -24,10 +24,10 @@ const CodeEditor = ({ starterCode, onRunCode, onSubmit }) => {
   const lineNumbers = Array.from({ length: lines.length }, (_, i) => i + 1);
 
   return (
-    <div className="card mb-8 overflow-hidden">
+    <div className="card mb-6 sm:mb-8 overflow-hidden">
       {/* Editor Header */}
-      <div className="bg-neutral-800 px-6 py-4 flex items-center justify-between">
-        <h3 className="text-white font-semibold text-lg">Code Editor</h3>
+      <div className="bg-neutral-800 px-4 sm:px-6 py-3 sm:py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0">
+        <h3 className="text-white font-semibold text-base sm:text-lg">Code Editor</h3>
         
         {/* Language Selector Dropdown */}
         <div className="relative">
@@ -65,7 +65,7 @@ const CodeEditor = ({ starterCode, onRunCode, onSubmit }) => {
       </div>
 
       {/* Code Editor Area with Line Numbers */}
-      <div className="bg-neutral-900 p-6 flex gap-4">
+      <div className="bg-neutral-900 p-3 sm:p-6 flex gap-2 sm:gap-4">
         {/* Line Numbers */}
         <div className="select-none text-neutral-500 font-mono text-sm leading-6 text-right pr-4 border-r border-neutral-700">
           {lineNumbers.map((num) => (
@@ -84,10 +84,10 @@ const CodeEditor = ({ starterCode, onRunCode, onSubmit }) => {
       </div>
 
       {/* Action Buttons */}
-      <div className="bg-neutral-50 px-6 py-4 flex gap-3 border-t border-neutral-200">
+      <div className="bg-neutral-50 px-4 sm:px-6 py-3 sm:py-4 flex flex-col sm:flex-row gap-2 sm:gap-3 border-t border-neutral-200">
         <button
           onClick={() => onRunCode(code, selectedLanguage)}
-          className="flex items-center gap-2 bg-white text-neutral-700 border-2 border-neutral-300 px-5 py-2.5 rounded-lg font-medium hover:bg-neutral-100 transition-all active:scale-95 focus-visible-ring"
+          className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white text-neutral-700 border-2 border-neutral-300 px-5 py-2.5 rounded-lg font-medium hover:bg-neutral-100 transition-all active:scale-95 focus-visible-ring"
         >
           <Play className="w-4 h-4" />
           Run Code
@@ -95,7 +95,7 @@ const CodeEditor = ({ starterCode, onRunCode, onSubmit }) => {
         
         <button
           onClick={() => onSubmit(code, selectedLanguage)}
-          className="btn-primary flex items-center gap-2"
+          className="w-full sm:w-auto btn-primary flex items-center justify-center gap-2"
         >
           <Send className="w-4 h-4" />
           Submit Solution

@@ -20,10 +20,10 @@ const Hero = () => {
     <section className="card p-8 mb-8 text-center" aria-labelledby="hero-title">
       {/* Motivational heading - Duolingo-lite playful energy */}
       <div className="mb-6">
-        <h2 id="hero-title" className="text-4xl sm:text-5xl font-bold text-neutral-900 mb-3">
+        <h2 id="hero-title" className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 mb-3">
           Question of the Day
         </h2>
-        <p className="text-lg text-neutral-600 mb-2">
+        <p className="text-base sm:text-lg text-neutral-600 mb-2">
           Build your coding streak, one challenge at a time 🚀
         </p>
         <p className="text-sm text-neutral-500">{currentDate}</p>

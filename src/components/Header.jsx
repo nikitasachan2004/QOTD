@@ -4,8 +4,8 @@ const Header = () => {
   const currentStreak = 7; // This would come from user data in a real app
 
   return (
-    <header className="bg-white shadow-card rounded-card p-6 mb-8" role="banner">
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+    <header className="bg-white shadow-card rounded-card p-4 sm:p-6 mb-6 sm:mb-8" role="banner">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
         {/* Brand Title and Badge */}
         <div className="flex items-center gap-3">
           <div className="bg-primary-600 p-2 rounded-lg">
