@@ -4,21 +4,35 @@ import { Play, Send, ChevronDown, Loader2 } from 'lucide-react';
 import { todaysQuestion } from '../data/question';
 import OutputPanel from './OutputPanel';
 
+const LANGUAGES = [
+  "C++",
+  "Java",
+  "Python3",
+  "Python",
+  "JavaScript",
+  "TypeScript",
+  "C#",
+  "C"
+];
+
 export default function CodeEditor() {
-  const [language, setLanguage] = useState('javascript');
+  const [language, setLanguage] = useState('JavaScript');
   const [code, setCode] = useState(todaysQuestion.starterCode.javascript);
   const [isRunning, setIsRunning] = useState(false);
   const [output, setOutput] = useState(null);
+  const [showResults, setShowResults] = useState(false);
 
   const handleLanguageChange = (newLang) => {
     setLanguage(newLang);
-    setCode(todaysQuestion.starterCode[newLang]);
+    const langKey = newLang.toLowerCase().replace(/[^a-z0-9]/g, '');
+    setCode(todaysQuestion.starterCode[langKey] || todaysQuestion.starterCode.javascript);
     setOutput(null);
   };
 
   const handleRunCode = () => {
     setIsRunning(true);
     setOutput(null);
+    setShowResults(true);
 
     // Simulate code execution
     setTimeout(() => {
@@ -38,6 +52,7 @@ export default function CodeEditor() {
   const handleSubmit = () => {
     setIsRunning(true);
     setOutput(null);
+    setShowResults(true);
 
     // Simulate submission
     setTimeout(() => {
@@ -67,12 +82,12 @@ export default function CodeEditor() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="flex flex-col flex-1 w-full space-y-6">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="bg-white rounded-xl shadow-soft-lg border border-border overflow-hidden"
+        className="bg-white rounded-xl shadow-soft-lg border border-border overflow-hidden flex flex-col transition-all duration-300 ease-in-out"
       >
         {/* Editor Header */}
         <div className="bg-soft-bg border-b border-border p-4 flex items-center justify-between">
@@ -85,16 +100,16 @@ export default function CodeEditor() {
               onChange={(e) => handleLanguageChange(e.target.value)}
               className="appearance-none bg-white border border-border rounded-xl px-4 py-2 pr-10 font-semibold text-sm text-dark cursor-pointer hover:border-primary transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary/30"
             >
-              <option value="javascript">JavaScript</option>
-              <option value="python">Python</option>
-              <option value="cpp">C++</option>
+              {LANGUAGES.map((lang) => (
+                <option key={lang} value={lang}>{lang}</option>
+              ))}
             </select>
             <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted pointer-events-none" />
           </div>
         </div>
 
         {/* Code Area with Line Numbers */}
-        <div className="flex bg-[#1e1e1e] text-[#d4d4d4] font-mono text-sm">
+        <div className={`flex bg-[#1e1e1e] text-[#d4d4d4] font-mono text-sm transition-all duration-300 ease-in-out ${showResults ? 'min-h-[260px]' : 'min-h-[320px] sm:min-h-[420px]'}`}>
           {/* Line Numbers */}
           <div className="bg-[#1e1e1e] py-4 px-3 border-r border-[#3e3e3e] select-none">
             {getLineNumbers().map((num) => (
@@ -108,7 +123,7 @@ export default function CodeEditor() {
           <textarea
             value={code}
             onChange={(e) => setCode(e.target.value)}
-            className="flex-1 p-4 bg-transparent resize-none focus:outline-none leading-6 code-editor min-h-[400px]"
+            className="flex-1 p-4 bg-transparent resize-none focus:outline-none leading-6 code-editor"
             spellCheck={false}
             placeholder="Write your code here..."
           />
@@ -149,7 +164,15 @@ export default function CodeEditor() {
       </motion.div>
 
       {/* Output Panel */}
-      {output && <OutputPanel output={output} />}
+      {showResults && output && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <OutputPanel output={output} />
+        </motion.div>
+      )}
     </div>
   );
 }
