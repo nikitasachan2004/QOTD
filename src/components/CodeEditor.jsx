@@ -4,51 +4,7 @@ import { ChevronDown, Play, Send } from 'lucide-react';
 const CodeEditor = ({ starterCode, onRunCode, onSubmit }) => {
   const [selectedLanguage, setSelectedLanguage] = useState('javascript');
   const [code, setCode] = useState(starterCode[selectedLanguage]);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-export default Footer;};  );    </footer>      </div>        </div>          </div>            © {currentYear} TechLearn. All rights reserved.          <div className="text-sm text-neutral-500">          {/* Copyright */}          </div>            </a>              <Twitter className="w-5 h-5" />            >              aria-label="Twitter"              className="text-neutral-600 hover:text-primary-600 transition-colors"              rel="noopener noreferrer"              target="_blank"              href="https://twitter.com"            <a            </a>              <Github className="w-5 h-5" />            >              aria-label="GitHub"              className="text-neutral-600 hover:text-primary-600 transition-colors"              rel="noopener noreferrer"              target="_blank"              href="https://github.com"            <a          <div className="flex items-center gap-4">          {/* Social Links */}          </div>            <span>for developers by TechLearn</span>            <Heart className="w-4 h-4 text-red-500 fill-red-500" />            <span>Made with</span>          <div className="flex items-center gap-2 text-sm text-neutral-600">          {/* Brand and Love */}        <div className="flex flex-col md:flex-row items-center justify-between gap-4">      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">    <footer className="bg-white border-t border-neutral-200 mt-12 py-8">  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const languages = [
     { value: 'javascript', label: 'JavaScript' },
