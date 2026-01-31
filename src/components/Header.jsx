@@ -4,7 +4,7 @@ const Header = () => {
   const currentStreak = 7; // This would come from user data in a real app
 
   return (
-    <header className="bg-white shadow-card rounded-card p-6 mb-8">
+    <header className="bg-white shadow-card rounded-card p-6 mb-8" role="banner">
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
         {/* Brand Title and Badge */}
         <div className="flex items-center gap-3">
@@ -20,7 +20,7 @@ const Header = () => {
         </div>
 
         {/* Streak Indicator - encourages daily habit */}
-        <div className="flex items-center gap-2 bg-gradient-to-r from-orange-50 to-red-50 px-4 py-2 rounded-lg">
+        <div className="flex items-center gap-2 bg-gradient-to-r from-orange-50 to-red-50 px-4 py-2 rounded-lg" aria-label="Current streak information">
           <Flame className="w-5 h-5 text-orange-500" />
           <div className="flex flex-col">
             <span className="text-xs text-neutral-600 font-medium">Current Streak</span>

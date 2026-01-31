@@ -16,12 +16,12 @@ const Leaderboard = ({ leaders }) => {
   };
 
   return (
-    <div className="card p-6 mb-8">
+    <section className="card p-6 mb-8" aria-labelledby="leaderboard-heading" role="region">
       <div className="flex items-center gap-3 mb-6">
         <div className="bg-purple-100 p-2 rounded-lg">
           <Trophy className="w-5 h-5 text-purple-600" />
         </div>
-        <h3 className="text-xl font-bold text-neutral-900">Leaderboard</h3>
+        <h3 id="leaderboard-heading" className="text-xl font-bold text-neutral-900">Leaderboard</h3>
       </div>
 
       {/* Leaderboard Table */}
@@ -72,7 +72,7 @@ const Leaderboard = ({ leaders }) => {
           🏆 Keep solving daily to climb the leaderboard!
         </p>
       </div>
-    </div>
+    </section>
   );
 };
 

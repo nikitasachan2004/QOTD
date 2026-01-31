@@ -27,8 +27,8 @@ const Stats = () => {
   ];
 
   return (
-    <div className="mb-8">
-      <h3 className="text-xl font-bold text-neutral-900 mb-4">Your Performance</h3>
+    <section className="mb-8" aria-labelledby="stats-heading">
+      <h3 id="stats-heading" className="text-xl font-bold text-neutral-900 mb-4">Your Performance</h3>
       
       {/* Stats Grid - responsive with hover effects */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -52,7 +52,7 @@ const Stats = () => {
           );
         })}
       </div>
-    </div>
+    </section>
   );
 };
 

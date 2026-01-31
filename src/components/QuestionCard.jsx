@@ -11,14 +11,14 @@ const QuestionCard = ({ question }) => {
   };
 
   return (
-    <div className="card p-8 mb-8">
+    <article className="card p-8 mb-8" aria-labelledby="question-title">
       {/* Question Header */}
       <div className="flex items-start justify-between mb-6">
         <div className="flex items-center gap-3">
           <div className="bg-primary-100 p-2 rounded-lg">
             <BookOpen className="w-5 h-5 text-primary-600" />
           </div>
-          <h3 className="text-2xl font-bold text-neutral-900">{title}</h3>
+          <h3 id="question-title" className="text-2xl font-bold text-neutral-900">{title}</h3>
         </div>
         <span className={`px-3 py-1 rounded-full text-sm font-semibold ${difficultyColors[difficulty]}`}>
           {difficulty}
@@ -78,7 +78,7 @@ const QuestionCard = ({ question }) => {
           </ul>
         </div>
       )}
-    </div>
+    </article>
   );
 };
 
