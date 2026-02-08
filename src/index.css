@@ -4,11 +4,11 @@
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border transition-colors duration-300;
   }
   
   body {
-    @apply bg-soft-bg text-dark font-sans antialiased;
+    @apply bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 font-sans antialiased;
   }
 }
 
@@ -25,7 +25,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-soft-bg;
+  @apply bg-slate-50 dark:bg-slate-900;
 }
 
 ::-webkit-scrollbar-thumb {

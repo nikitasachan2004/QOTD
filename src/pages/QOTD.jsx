@@ -10,10 +10,10 @@ import Leaderboard from '../components/Leaderboard';
 import SubscribeCTA from '../components/SubscribeCTA';
 import { dailyStats } from '../data/stats';
 
-export default function QOTD() {
+export default function QOTD({ toggleTheme }) {
   return (
-    <div className="min-h-screen bg-soft-bg">
-      <Header />
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-900 transition-colors duration-300">
+      <Header toggleTheme={toggleTheme} />
       <Hero />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-8">
@@ -46,13 +46,13 @@ export default function QOTD() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-border bg-white">
+      <footer className="border-t border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-muted text-sm">
+            <p className="text-slate-600 dark:text-slate-400 text-sm">
               © 2026 QOTD. Build your coding muscle, one day at a time.
             </p>
-            <div className="flex gap-6 text-sm text-muted">
+            <div className="flex gap-6 text-sm text-slate-600 dark:text-slate-400">
               <a href="#" className="hover:text-primary transition-colors duration-300">
                 About
               </a>

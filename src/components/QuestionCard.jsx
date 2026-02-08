@@ -30,11 +30,11 @@ export default function QuestionCard() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       whileHover={{ y: -2 }}
-      className="bg-white rounded-xl p-6 sm:p-8 shadow-sm hover:shadow-md border border-border transition-shadow duration-200"
+      className="bg-white dark:bg-slate-800 rounded-xl p-6 sm:p-8 shadow-sm hover:shadow-md border border-slate-200 dark:border-slate-700 transition-all duration-300"
     >
       {/* Title */}
       <div className="mb-3">
-        <h3 className="text-2xl sm:text-3xl font-bold text-dark">
+        <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-slate-100">
           {todaysQuestion.title}
         </h3>
       </div>
@@ -64,27 +64,27 @@ export default function QuestionCard() {
 
       {/* Description */}
       <div className="mb-6">
-        <h4 className="text-lg font-semibold text-dark mb-3">Problem Statement</h4>
-        <p className="text-muted leading-relaxed">
+        <h4 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-3">Problem Statement</h4>
+        <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
           {todaysQuestion.description}
         </p>
       </div>
 
       {/* Examples */}
       <div className="mb-6">
-        <h4 className="text-lg font-semibold text-dark mb-3">Examples</h4>
+        <h4 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-3">Examples</h4>
         <div className="space-y-4">
           {todaysQuestion.examples.map((example, index) => (
-            <div key={index} className="bg-soft-bg rounded-xl p-4 border border-border">
+            <div key={index} className="bg-slate-50 dark:bg-slate-900 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
               <div className="font-mono text-sm mb-2">
-                <span className="text-muted">Input:</span>
-                <span className="text-dark ml-2">{example.input}</span>
+                <span className="text-slate-600 dark:text-slate-400">Input:</span>
+                <span className="text-slate-900 dark:text-slate-100 ml-2">{example.input}</span>
               </div>
               <div className="font-mono text-sm mb-2">
-                <span className="text-muted">Output:</span>
-                <span className="text-dark ml-2">{example.output}</span>
+                <span className="text-slate-600 dark:text-slate-400">Output:</span>
+                <span className="text-slate-900 dark:text-slate-100 ml-2">{example.output}</span>
               </div>
-              <div className="text-sm text-muted">
+              <div className="text-sm text-slate-600 dark:text-slate-400">
                 <span className="font-medium">Explanation:</span> {example.explanation}
               </div>
             </div>
@@ -94,10 +94,10 @@ export default function QuestionCard() {
 
       {/* Constraints */}
       <div>
-        <h4 className="text-lg font-semibold text-dark mb-3">Constraints</h4>
+        <h4 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-3">Constraints</h4>
         <ul className="space-y-2">
           {todaysQuestion.constraints.map((constraint, index) => (
-            <li key={index} className="flex items-start gap-2 text-muted">
+            <li key={index} className="flex items-start gap-2 text-slate-600 dark:text-slate-400">
               <span className="text-primary mt-1">•</span>
               <span className="font-mono text-sm">{constraint}</span>
             </li>

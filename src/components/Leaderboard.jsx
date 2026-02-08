@@ -25,18 +25,18 @@ export default function Leaderboard() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md border border-border transition-shadow duration-200"
+      className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm hover:shadow-md border border-slate-200 dark:border-slate-700 transition-all duration-300"
     >
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
-        <h3 className="text-xl font-bold text-dark">Leaderboard</h3>
-        <div className="flex gap-2 bg-soft-bg p-1 rounded-xl">
+        <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100">Leaderboard</h3>
+        <div className="flex gap-2 bg-slate-50 dark:bg-slate-900 p-1 rounded-xl">
           <button
             onClick={() => setActiveTab('today')}
             className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 cursor-pointer focus-visible:ring-2 focus-visible:ring-blue-500 ${
               activeTab === 'today'
-                ? 'bg-white text-primary shadow-sm'
-                : 'text-muted hover:text-dark'
+                ? 'bg-white dark:bg-slate-800 text-primary shadow-sm'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100'
             }`}
             aria-label="View today's leaderboard"
           >
@@ -46,8 +46,8 @@ export default function Leaderboard() {
             onClick={() => setActiveTab('thisWeek')}
             className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 cursor-pointer focus-visible:ring-2 focus-visible:ring-blue-500 ${
               activeTab === 'thisWeek'
-                ? 'bg-white text-primary shadow-sm'
-                : 'text-muted hover:text-dark'
+                ? 'bg-white dark:bg-slate-800 text-primary shadow-sm'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100'
             }`}
             aria-label="View this week's leaderboard"
           >
@@ -68,7 +68,7 @@ export default function Leaderboard() {
             className={`flex items-center gap-4 p-4 rounded-xl transition-all duration-200 cursor-pointer ${
               user.isCurrentUser
                 ? 'bg-primary/10 border-2 border-primary'
-                : 'bg-soft-bg hover:bg-border'
+                : 'bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-700'
             }`}
           >
             {/* Rank Icon */}
@@ -80,20 +80,20 @@ export default function Leaderboard() {
             <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm ${
               user.isCurrentUser
                 ? 'bg-primary text-white'
-                : 'bg-border text-dark'
+                : 'bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-slate-100'
             }`}>
               {user.avatar}
             </div>
 
             {/* Name */}
             <div className="flex-1">
-              <div className={`font-semibold ${user.isCurrentUser ? 'text-primary' : 'text-dark'}`}>
+              <div className={`font-semibold ${user.isCurrentUser ? 'text-primary' : 'text-slate-900 dark:text-slate-100'}`}>
                 {user.name}
               </div>
             </div>
 
             {/* Time */}
-            <div className="font-mono font-bold text-dark">
+            <div className="font-mono font-bold text-slate-900 dark:text-slate-100">
               {user.time}
             </div>
           </motion.div>

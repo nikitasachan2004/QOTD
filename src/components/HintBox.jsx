@@ -11,13 +11,13 @@ export default function HintBox() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md border border-border transition-shadow duration-200"
+      className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm hover:shadow-md border border-slate-200 dark:border-slate-700 transition-all duration-300"
     >
       <div className="flex items-center gap-3 mb-4">
-        <div className="w-10 h-10 bg-yellow-100 rounded-xl flex items-center justify-center">
-          <Lightbulb className="w-5 h-5 text-yellow-600" />
+        <div className="w-10 h-10 bg-yellow-100 dark:bg-yellow-900/30 rounded-xl flex items-center justify-center">
+          <Lightbulb className="w-5 h-5 text-yellow-600 dark:text-yellow-500" />
         </div>
-        <h3 className="text-xl font-bold text-dark">Need a Hint?</h3>
+        <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100">Need a Hint?</h3>
       </div>
 
       <div className="relative">
@@ -31,9 +31,9 @@ export default function HintBox() {
               className="text-center py-8"
             >
               <div className="mb-4">
-                <Lock className="w-12 h-12 text-muted mx-auto" />
+                <Lock className="w-12 h-12 text-slate-500 dark:text-slate-400 mx-auto" />
               </div>
-              <p className="text-muted mb-4">
+              <p className="text-slate-600 dark:text-slate-400 mb-4">
                 Try solving it on your own first. Hints can help when you're stuck!
               </p>
               <motion.button
@@ -53,11 +53,11 @@ export default function HintBox() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.3 }}
-              className="bg-yellow-50 border-2 border-yellow-200 rounded-xl p-6"
+              className="bg-yellow-50 dark:bg-yellow-900/20 border-2 border-yellow-200 dark:border-yellow-700 rounded-xl p-6"
             >
               <div className="flex items-start gap-3">
-                <Lightbulb className="w-5 h-5 text-yellow-600 mt-1 flex-shrink-0" />
-                <p className="text-dark leading-relaxed">
+                <Lightbulb className="w-5 h-5 text-yellow-600 dark:text-yellow-500 mt-1 flex-shrink-0" />
+                <p className="text-slate-900 dark:text-slate-100 leading-relaxed">
                   {todaysQuestion.hint}
                 </p>
               </div>
